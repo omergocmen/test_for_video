@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarayıcı Oyunları</title>
+  <style>
+    :root { --bg: #f6f3ee; --fg: #2b2622; --card: #fff; --muted: #7a7068; --accent: #e07a3f; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #1d1a17; --fg: #f1ece6; --card: #2a2622; --muted: #a59c93; --accent: #f0955e; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--fg); }
+    main { max-width: 960px; margin: 0 auto; padding: 32px 16px; }
+    h1 { margin: 0 0 4px; font-size: 2rem; }
+    .lead { margin: 0 0 24px; color: var(--muted); }
+    .games { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .card { display: block; height: 100%; padding: 20px; border-radius: 12px; background: var(--card); color: inherit; text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,.12); transition: transform .15s, box-shadow .15s; }
+    .card:hover, .card:focus-visible { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.15); }
+    .card-icon { font-size: 2rem; }
+    .card h2 { margin: 8px 0 4px; font-size: 1.2rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .empty { color: var(--muted); }
+    .games:not(:empty) + .empty { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Tarayıcı Oyunları</h1>
+    <p class="lead">Kurulum yok, giriş yok. Bir oyun seç ve oyna.</p>
+    <ul class="games" id="games"></ul>
+    <p class="empty">Henüz oyun eklenmedi.</p>
+  </main>
+</body>
+</html>
