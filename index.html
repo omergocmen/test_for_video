@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tarayıcı Oyunları</title>
+  <link rel="icon" href="data:,">
   <style>
     :root { --bg: #f6f3ee; --fg: #2b2622; --card: #fff; --muted: #7a7068; --accent: #e07a3f; }
     @media (prefers-color-scheme: dark) {
@@ -28,7 +29,15 @@
   <main>
     <h1>Tarayıcı Oyunları</h1>
     <p class="lead">Kurulum yok, giriş yok. Bir oyun seç ve oyna.</p>
-    <ul class="games" id="games"></ul>
+    <ul class="games" id="games">
+      <li>
+        <a class="card" href="games/snake/index.html">
+          <span class="card-icon" aria-hidden="true">🐍</span>
+          <h2>Yılan</h2>
+          <p>Yemleri ye, uza ve duvara ya da kendine çarpmadan hayatta kal.</p>
+        </a>
+      </li>
+    </ul>
     <p class="empty">Henüz oyun eklenmedi.</p>
   </main>
 </body>
