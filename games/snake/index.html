@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yılan</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="../../index.html">&larr; Tüm oyunlar</a>
+
+    <header class="top">
+      <h1>Yılan</h1>
+      <div class="scores">
+        <div class="score-box"><span class="label">Skor</span><span id="score">0</span></div>
+        <div class="score-box"><span class="label">En iyi</span><span id="best">0</span></div>
+      </div>
+    </header>
+
+    <div class="board" id="board">
+      <canvas id="canvas" aria-label="Oyun alanı"></canvas>
+      <div class="overlay" id="overlay">
+        <p class="overlay-title" id="overlay-title">Yılan</p>
+        <p class="overlay-text" id="overlay-text">Yemleri ye, duvara ve kendine çarpma.</p>
+        <button type="button" class="btn" id="action">Başla</button>
+      </div>
+    </div>
+
+    <div class="pad" aria-label="Yön butonları">
+      <button type="button" class="pad-btn up" data-dir="up" aria-label="Yukarı">▲</button>
+      <button type="button" class="pad-btn left" data-dir="left" aria-label="Sol">◀</button>
+      <button type="button" class="pad-btn pause" id="pause-btn" aria-label="Duraklat">❚❚</button>
+      <button type="button" class="pad-btn right" data-dir="right" aria-label="Sağ">▶</button>
+      <button type="button" class="pad-btn down" data-dir="down" aria-label="Aşağı">▼</button>
+    </div>
+
+    <p class="help">Ok tuşları / WASD ile yön ver, <kbd>Boşluk</kbd> veya <kbd>P</kbd> ile duraklat. Dokunmatik ekranda oyun alanında parmağını kaydır ya da alttaki butonları kullan.</p>
+  </main>
+
+  <script src="logic.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
