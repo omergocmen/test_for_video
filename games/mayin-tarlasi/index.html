@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mayın Tarlası</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="../../index.html">&larr; Tüm oyunlar</a>
+
+    <header class="top">
+      <h1>Mayın Tarlası</h1>
+      <div class="levels" role="group" aria-label="Zorluk">
+        <button type="button" class="level" data-level="kolay">Kolay</button>
+        <button type="button" class="level" data-level="orta">Orta</button>
+        <button type="button" class="level" data-level="zor">Zor</button>
+      </div>
+    </header>
+
+    <div class="bar">
+      <div class="stat" title="Kalan mayın"><span class="label">Mayın</span><span id="mines-left">0</span></div>
+      <div class="stat" title="Süre"><span class="label">Süre</span><span id="time">0</span></div>
+      <div class="stat" title="Bu zorlukta en iyi süre"><span class="label">En iyi</span><span id="best">–</span></div>
+      <button type="button" class="btn mode" id="mode" aria-pressed="false">⛏️ Aç</button>
+      <button type="button" class="btn" id="new-game">Yeni oyun</button>
+    </div>
+
+    <p class="status" id="status" role="status" aria-live="polite">İlk tıklama her zaman güvenli.</p>
+
+    <div class="board-wrap" id="board-wrap">
+      <div class="board" id="board" tabindex="0" aria-label="Mayın tarlası ızgarası"></div>
+    </div>
+
+    <p class="help">
+      Sol tık: aç · Sağ tık: bayrak · Açık sayıya tık veya orta tık: çevresini aç · <kbd>R</kbd>: yeni oyun ·
+      Ok tuşları + <kbd>Boşluk</kbd> aç, <kbd>F</kbd> bayrak.
+      Dokunmatik ekranda dokun: aç, uzun bas: bayrak; üstteki düğmeyle bayrak moduna geçebilirsin.
+    </p>
+  </main>
+
+  <script src="logic.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

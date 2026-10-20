@@ -1,0 +1,167 @@
+:root {
+  --bg: #eef1f4;
+  --fg: #273240;
+  --muted: #5f6b7a;
+  --panel: #d5dbe2;
+  --closed: #b9c3ce;
+  --closed-hi: #c9d2db;
+  --open: #f7f9fb;
+  --line: #9aa6b3;
+  --accent: #e07a3f;
+  --bad: #d64545;
+  --cell: 30px;
+  --n1: #1e5bd8; --n2: #2e7d32; --n3: #d32f2f; --n4: #283593;
+  --n5: #8d2b0b; --n6: #00838f; --n7: #222; --n8: #6b6b6b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171b20;
+    --fg: #e3e8ee;
+    --muted: #9aa5b1;
+    --panel: #262c34;
+    --closed: #3c4552;
+    --closed-hi: #4a5564;
+    --open: #20252c;
+    --line: #2f3742;
+    --n1: #6ea0ff; --n2: #6fcf73; --n3: #ff6b6b; --n4: #a7b3ff;
+    --n5: #ffab70; --n6: #4dd8e0; --n7: #e3e8ee; --n8: #b0b0b0;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.back { color: inherit; font-size: 0.95rem; }
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+h1 { margin: 0; font-size: 2rem; line-height: 1.1; }
+
+.levels { display: flex; gap: 4px; padding: 4px; border-radius: 8px; background: var(--panel); }
+
+.level, .btn {
+  font: inherit;
+  font-weight: 600;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--fg);
+  cursor: pointer;
+  min-height: 40px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.level { background: transparent; }
+.level[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+.btn { background: var(--panel); }
+@media (hover: hover) {
+  .btn:hover, .level:hover { filter: brightness(1.05); }
+}
+.mode[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat {
+  min-width: 70px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--panel);
+  text-align: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat .label { display: block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--muted); }
+
+.status { min-height: 1.5em; margin: 12px 0; font-weight: 600; }
+.status.won { color: #2e9d4f; }
+.status.lost { color: var(--bad); }
+
+.board-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+
+.board {
+  display: grid;
+  width: max-content;
+  margin: 0 auto;
+  gap: 1px;
+  padding: 1px;
+  background: var(--line);
+  border-radius: 6px;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  /* Kaydırma ve iki parmakla zoom serbest; çift dokunma gecikmesi yok. */
+  touch-action: manipulation;
+}
+
+.board:focus-visible { box-shadow: 0 0 0 3px var(--accent); }
+
+.cell {
+  width: var(--cell);
+  height: var(--cell);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: calc(var(--cell) * 0.55);
+  line-height: 1;
+  background: linear-gradient(var(--closed-hi), var(--closed));
+  cursor: pointer;
+}
+
+.cell.open { background: var(--open); cursor: default; }
+.cell.open.n { cursor: pointer; }
+.cell.mine { background: var(--open); }
+.cell.exploded { background: var(--bad); }
+.cell.wrong { background: var(--closed); color: var(--bad); }
+.cell.cursor { box-shadow: inset 0 0 0 3px var(--accent); }
+
+.n1 { color: var(--n1); } .n2 { color: var(--n2); } .n3 { color: var(--n3); } .n4 { color: var(--n4); }
+.n5 { color: var(--n5); } .n6 { color: var(--n6); } .n7 { color: var(--n7); } .n8 { color: var(--n8); }
+
+.help { margin-top: 16px; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+
+kbd {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--panel);
+  font-family: inherit;
+  font-size: 0.85em;
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.6rem; }
+  .stat { min-width: 60px; }
+}
