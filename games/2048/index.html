@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2048</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="../../index.html">&larr; Tüm oyunlar</a>
+
+    <header class="top">
+      <h1>2048</h1>
+      <div class="scores">
+        <div class="score-box"><span class="label">Skor</span><span id="score">0</span></div>
+        <div class="score-box"><span class="label">En iyi</span><span id="best">0</span></div>
+      </div>
+    </header>
+
+    <div class="bar">
+      <p class="hint">Aynı sayıları birleştir, <strong>2048</strong>'e ulaş!</p>
+      <button type="button" class="btn" id="new-game">Yeni oyun</button>
+    </div>
+
+    <div class="board" id="board" aria-label="Oyun alanı" tabindex="0">
+      <div class="cells" aria-hidden="true">
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <div class="tiles" id="tiles"></div>
+      <div class="overlay" id="overlay" hidden>
+        <p class="overlay-title" id="overlay-title"></p>
+        <div class="overlay-actions">
+          <button type="button" class="btn" id="keep-going" hidden>Devam et</button>
+          <button type="button" class="btn" id="retry">Yeni oyun</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="help">Ok tuşları / WASD ile kaydır, <kbd>R</kbd> ile yeniden başla. Dokunmatik ekranda ızgarada parmağını kaydır.</p>
+  </main>
+
+  <script src="logic.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
